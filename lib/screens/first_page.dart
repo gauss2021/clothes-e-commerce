@@ -45,9 +45,9 @@ class FirstPage extends StatelessWidget {
                           listen: false)
                       .pageIndex(0);
                 },
-                child: const Icon(
+                child: Icon(
                   Icons.home,
-                  color: Colors.white,
+                  color: indexPage == 0 ? Colors.amber : Colors.white,
                   size: 24,
                 ),
               ),
@@ -57,9 +57,9 @@ class FirstPage extends StatelessWidget {
                           listen: false)
                       .pageIndex(1);
                 },
-                child: const Icon(
+                child: Icon(
                   Icons.search,
-                  color: Colors.white,
+                  color: indexPage == 1 ? Colors.amber : Colors.white,
                   size: 24,
                 ),
               ),
@@ -69,9 +69,9 @@ class FirstPage extends StatelessWidget {
                           listen: false)
                       .pageIndex(2);
                 },
-                child: const Icon(
+                child: Icon(
                   Icons.add,
-                  color: Colors.white,
+                  color: indexPage == 2 ? Colors.amber : Colors.white,
                   size: 24,
                 ),
               ),
@@ -81,9 +81,9 @@ class FirstPage extends StatelessWidget {
                           listen: false)
                       .pageIndex(3);
                 },
-                child: const Icon(
+                child: Icon(
                   Icons.favorite,
-                  color: Colors.white,
+                  color: indexPage == 3 ? Colors.amber : Colors.white,
                   size: 24,
                 ),
               ),
@@ -93,9 +93,9 @@ class FirstPage extends StatelessWidget {
                           listen: false)
                       .pageIndex(4);
                 },
-                child: const Icon(
+                child: Icon(
                   Icons.person,
-                  color: Colors.white,
+                  color: indexPage == 4 ? Colors.amber : Colors.white,
                   size: 24,
                 ),
               )
