@@ -1,4 +1,8 @@
+import 'dart:ffi';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -12,11 +16,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     Tab(text: 'Home'),
     Tab(text: 'Femme'),
     Tab(text: 'Enfants'),
-    Tab(text: 'Ete'),
-    Tab(text: 'Chaussures'),
-    Tab(text: 'Jeans'),
-    Tab(text: 'Robes'),
-
   ];
 
   late TabController tabController;
@@ -56,6 +55,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   const Text("Venez comme vous etes",style: TextStyle(color: Colors.white,fontSize: 24),),
                   const SizedBox(height: 16,),
                   TabBar(
+                    tabAlignment:TabAlignment.start ,
                   controller: tabController,
                   isScrollable: true,
                   indicatorColor: Colors.transparent,
@@ -82,17 +82,114 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
               child:  TabBarView(
         controller:tabController,
-        children: myTabs.map((Tab tab) {
-          final String label = tab.text!.toLowerCase();
-          return Center(
-            child: Text(
-              'This is the $label tab',
-              style: const TextStyle(fontSize: 24),
+        children:[
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 12),
+                  child: SizedBox(
+                    height:MediaQuery.of(context).size.height*0.36 , 
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount:4 ,itemBuilder:(context,index){
+                        int numero= index;
+                      return Container(
+                        margin:const EdgeInsets.only(right: 16),
+                        height: 100,
+                        color: Colors.green,
+                        width: MediaQuery.of(context).size.width*0.56,
+                        child: Text(" test $numero"),
+                      );
+                    } ),
+                  ),
+                ),
+               const SizedBox(
+                  height: 10,
+                ),
+               Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text("Arrivages", style: TextStyle(color: Colors.black),),
+                    SizedBox(
+                      child: Row(
+                        children: [
+                         const Text("Arrivages", style: TextStyle(color: Colors.black),),
+                          IconButton(onPressed: (){}, icon:const Icon(Icons.navigate_next,color: Colors.black,size: 18,))
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                Container(
+                        width: double.infinity,
+                        height: MediaQuery.of(context).size.height*0.1,
+                        color: Colors.amber,
+                      )
+              ],
             ),
-          );
-        }).toList(),
+
+             Column(
+              children: [
+                Container(
+                  height:MediaQuery.of(context).size.height*0.36 ,
+                  width: double.infinity,
+                  color: Colors.amber,
+                ),
+               const SizedBox(
+                  height: 16,
+                ),
+               Padding(
+                 padding: const EdgeInsets.only(left: 8.0),
+                 child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text("Arrivages", style: TextStyle(color: Colors.black),),
+                      SizedBox(
+                        child: Row(
+                          children: [
+                           const Text("Arrivages", style: TextStyle(color: Colors.black),),
+                            IconButton(onPressed: (){}, icon:const Icon(Icons.navigate_next,color: Colors.black,size: 18,))
+                          ],
+                        ),
+                      ),
+                      
+                    ],
+                  ),
+               )
+              ],
+            ),
+
+             Column(
+              children: [
+                Container(
+                  height:MediaQuery.of(context).size.height*0.36 ,
+                  width: double.infinity,
+                  color: Colors.red,
+                ),
+               const SizedBox(
+                  height: 16,
+                ),
+               Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text("Arrivages", style: TextStyle(color: Colors.black),),
+                    SizedBox(
+                      child: Row(
+                        children: [
+                         const Text("Arrivages", style: TextStyle(color: Colors.black),),
+                          IconButton(onPressed: (){}, icon:const Icon(Icons.navigate_next,color: Colors.black,size: 18,))
+                        ],
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+        ]
+         
+        )
       ),
-            )
+            
 
 
           ],
